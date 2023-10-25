@@ -16,9 +16,9 @@ app.head('/', (req, res) => res.send(''))
 
 app.use(morgan('dev'))
 // protect all resources with basic authentication
-// app.use(basicAuth({
-//   users: { 'jane.lane': 'password123' },
-// }))
+app.use(basicAuth({
+  users: { 'jane.lane': 'password123' },
+}))
 
 app.post('/echo', bodyParser.json(), (req, res) => {
   console.log('/echo received', req.body)
